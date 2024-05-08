@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="ex-76.css">
+
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div id="keeper">
+            <h3>Answer the questions</h3>
+
+            <p id="question"></p>
+
+            <form id="myform">
+                <div>
+                    <label for="radio1"><span id="option1"></span><input id="radio1" name="option" type="radio"></label>
+                </div>
+                <div>
+                    <label for="radio2"><span id="option2"></span><input id="radio2" name="option" type="radio"></label>
+                </div>
+                <div>
+                    <label for="radio3"><span id="option3"></span><input id="radio3" name="option" type="radio"></label>
+                </div>
+                <div>
+                    <label for="radio4"><span id="option4"></span><input id="radio4" name="option" type="radio"></label>
+                </div>
+            </form>
+
+            <button onclick="next()">next question</button>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        var questions = [
+            {
+                question: 'گوگل در چه سالی تاسیس شد؟',
+                choices: ['2002', '2000', '1998', '1989'],
+                correctAnswer: 2
+            },
+            {
+                question: 'مخترع اینترنت چه کسی است؟',
+                choices: ['نیکولا تسلا', 'مکلوهان', 'ونار بوش', 'رابرت کان'],
+                correctAnswer: 2
+            },
+            {
+                question: 'مدیر عامل شرکت اپل چه کسی است؟',
+                choices: ['استیون جابز', 'بیل گیتس', 'تیم کوک', 'لیزا برنان'],
+                correctAnswer: 0
+            },
+            {
+                question: 'اولین کامپیوتر جهان در چه سالی تولید شد؟',
+                choices: ['1800', '1875', '1850', '1884'],
+                correctAnswer: 1
+            },
+            {
+                question: 'گرانترین شرکت فناوری 2022 چه شرکتی است؟',
+                choices: ['مایکروسافت', 'تسلا', 'آمازون', 'اپل'],
+                correctAnswer: 3
+            }
+        ];
+
+
+        let query = document.getElementById("question");
+        let option1 = document.getElementById("option1");
+        let option2 = document.getElementById("option2");
+        let option3 = document.getElementById("option3");
+        let option4 = document.getElementById("option4");
+        let num = 0;
+        let score = 0;
+
+        query.innerHTML = questions[num].question;
+        option1.innerHTML = questions[num].choices[0];
+        option2.innerHTML = questions[num].choices[1];
+        option3.innerHTML = questions[num].choices[2];
+        option4.innerHTML = questions[num].choices[3];
+
+
+        function next() {
+            debugger
+            let checkedRadio = document.querySelector('input[type="radio"]:checked')
+            let x = checkedRadio.parentNode;
+            let y = questions[num].correctAnswer;
+            let a = questions[num].choices[y];
+
+            if (x.textContent == a) {
+                score += 1;
+            }
+
+            document.getElementById("myform").reset();
+
+            num += 1;
+            if (num < questions.length) {
+
+                query.innerHTML = questions[num].question;
+                option1.innerHTML = questions[num].choices[0];
+                option2.innerHTML = questions[num].choices[1];
+                option3.innerHTML = questions[num].choices[2];
+                option4.innerHTML = questions[num].choices[3];
+
+            } else {
+                document.getElementById("keeper").style.display = "none";
+                document.getElementById("container").style.textAlign = "center"
+                document.getElementById("container").innerHTML = 'your score is : ' + score;
+            }
+
+
+
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+<!-- <html>
+
+<head>
+    <style type="text/css">
+        label {
+            display: block;
+        }
+    </style>
+
+<body>
+    <form>
+        <label><input type="radio" name="q" id="radio-a" value="A"> A</label>
+        <label><input type="radio" name="q" id="radio-b" value="B"> B</label>
+        <label><input type="radio" name="q" id="radio-c" value="C"> C</label>
+        <a href="#" id="clear-button">Clear</a>
+    </form>
+    <script type="text/javascript">
+        document.getElementById('clear-button').addEventListener('click', function () {
+
+            ["radio-a", "radio-b", "radio-c"].forEach(function (id) {
+
+                document.getElementById(id).checked = false;
+            }); return false;
+        })
+
+    </script>
+</body>
+
+</html> -->

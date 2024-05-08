@@ -1,0 +1,26 @@
+#container {
+    text-align: right;
+    background-color: aliceblue;
+    width: 25%;
+    padding: 2.5%;
+    border: 1px solid cadetblue;
+    border-radius: 5px;
+    margin-inline-start: 35%;
+    margin-top: 25vh;
+}
+
+h3 {
+    text-align: center;
+    margin-block-start: 0;
+    color: brown;
+    margin-block-end: 30px;
+}
+
+button {
+    background-color: crimson;
+    margin-top: 45px;
+    margin-right: 116px;
+    border: 1px solid crimson;
+    border-radius: 5px;
+    padding: 5px;
+}
